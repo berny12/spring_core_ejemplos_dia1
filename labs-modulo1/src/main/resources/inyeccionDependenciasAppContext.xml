@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="saludaServiceA" name="saludaServiceJ" class="com.synergyj.cursos.spring.servicio.impl.SaludaServiceImpl">
+		<property name="saludo" value="¡Hola!" />
+	</bean>
+
+	<bean id="saludaServiceB" class="com.synergyj.cursos.spring.servicio.impl.SaludaServiceImpl">
+		<property name="saludo" value="¡Mucho gusto!" />
+	</bean>
+
+	<bean class="com.synergyj.cursos.spring.servicio.impl.SaludaServiceImpl">
+		<qualifier value="saludaServiceC" />
+		<property name="saludo" value="¡Que onda!" />
+	</bean>
+
+</beans>

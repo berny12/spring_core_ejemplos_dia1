@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.0.201506251244-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/inyeccionDependenciasAppContext.xml</config>
+		<config>src/main/resources/constructorAppContext.xml</config>
+		<config>src/main/resources/cicloVidaAppContext.xml</config>
+		<config>src/main/resources/inyeccionMetodosAppContext.xml</config>
+		<config>src/main/resources/inyeccionBeansXMLAppContext.xml</config>
+		<config>src/main/resources/inyeccionBeansJavaAppContext.xml</config>
+		<config>src/main/resources/aliasYnombresAppContext.xml</config>
+		<config>src/main/resources/inyeccionDependenciasBasicoAppContext.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

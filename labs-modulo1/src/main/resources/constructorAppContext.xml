@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Nota: No se permite cambiar el orden de  los tags <constructor-arg>  -->
+
+	<bean id="stringIntBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
+		<constructor-arg value="10"  />
+		<constructor-arg value="20"  />
+	</bean>
+
+	<bean id="intStringBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
+		<constructor-arg value="20" />
+		<constructor-arg value="10" />
+	</bean>
+
+	<bean id="intBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
+		<constructor-arg value="10" />
+	</bean>
+
+	<bean id="intStringDaoBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
+		<constructor-arg value="1000" />
+		<constructor-arg ref="string" />
+		<constructor-arg ref="dao" />
+	</bean>
+
+	<bean id="string" class="java.lang.String">
+		<constructor-arg value="2000" />
+	</bean>
+
+	<bean id="dao" class="com.synergyj.cursos.spring.dao.impl.GenericDAOImpl" />
+</beans>
+
+
+
+

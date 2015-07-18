@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--TODO, completar para que el test case del lab 2 funcione. -->
+
+	<bean id= "saludoBean" name="holaBean,regardsBean" class="com.synergyj.cursos.spring.beans.saludo.SaludoBean">
+		<constructor-arg value="Saludando desde mi curso de Spring" />
+	</bean>
+	
+	<!-- para alias es necesario solo uno a uno -->
+	<alias name="holaBean" alias="keOndaBean"/>
+	<alias name="holaBean" alias="kiuboBean"/>
+	
+</beans>
