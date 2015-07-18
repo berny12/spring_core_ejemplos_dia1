@@ -1,32 +1,37 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-sourceCompatibility = 1.5
-version = '1.0'
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart',
-                   'Implementation-Version': version
-    }
-}
+//para estalecer la compatibilida del compilador
+sourceCompatibility = 1.7
+//version del proyecto
+version = '1.0.0'
 
+//para configurar el juego de caracteres IGUAL al configurado en el ide
+def defaultEncoding='ISO-8859-1'
+compileJava {options.encoding= defaultEncoding}
+compileTestJava {options.encoding=defaultEncoding}
+
+//repositorio para dependencias
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+
+	//agregamos las liberias core de spring en forma corta
+    compile 'org.springframework:spring-context:4.1.7.RELEASE'
+    //agregar dependencia en forma tradicional
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    
+    
+    //para el logger en la aplicacion
+    //agregamos api slf4j
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    //agregamos el puente de sf4j con commons-loggin
+    runtime 'org.slf4j:jcl-over-slf4j:1.7.7'
+    //uso de log4j
+    runtime 'org.slf4j:slf4j-log4j12:1.7.7'
 }
 
-test {
-    systemProperties 'property': 'value'
-}
-
-uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'repos'
-       }
-    }
-}
+//para modulos de commons-logging , evitar mas de uno usar , 
+configurations { compile.exclude module: 'commons-logging'}
