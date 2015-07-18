@@ -15,6 +15,9 @@ public class Asignatura {
 
 	private String clave;
 
+	// bandera ara saber si ha sido instanciado
+	public static boolean existeInstancia = false;
+
 	/**
 	 * @return the clave
 	 */
@@ -23,9 +26,14 @@ public class Asignatura {
 	}
 
 	/**
-	 * @param clave the clave to set
+	 * @param clave
+	 *            the clave to set
 	 */
 	public void setClave(String clave) {
 		this.clave = clave;
+	}
+
+	public Asignatura() {
+		existeInstancia = true;
 	}
 }

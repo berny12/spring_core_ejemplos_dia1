@@ -5,5 +5,76 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
 
 	<!-- TODO, completar este archivo  -->
+	<bean id="cadena" class="java.lang.Long" >
+		<constructor-arg value="377378383"></constructor-arg>
+	</bean>
+	<bean id="coleccionesBean" class="com.synergyj.cursos.spring.beans.colecciones.ColeccionesBean">
+	
+		<property name="nombre" value="El innombrable"></property>
+		<property name="annios" value="100"></property>
+		<property name="esProgramador" value="true"></property>
+		<property name="propiedades">
+			<map>
+				<entry>
+					<key>
+						<value>key</value>
+					</key>
+					<value>value</value>
+				</entry>
+				<entry>
+					<key>
+						<value>
+							cadena
+						</value>
+					</key>
+					<ref bean="cadena" />
+				</entry>
+			</map>
+		</property>
+		<property name="lista">
+		<list>
+			<value>elemento 1 de la lista</value>
+			<ref bean="cadena" />
+			<value>elemento 3 de la lista</value>
+			<ref bean="cadena" />
+		</list>
+		</property>
+		<property name="telefonos">
+			<list>
+				<value>5555-8887</value>
+				<value>5555-8887-6544</value>
+			</list>
+		</property>
+		<property name="dummy">
+			<ref bean="dummy"/>
+		</property>
+		
+		<bean id="dummy" class="com.synergyj.cursos.spring.beans.colecciones.Dummy">
+		   	<property name="nombre">
+		   		<value>Hola</value>
+		   	</property>
+		   	<property name="inner">
+		   		<ref bean="dummyInner" />
+		   	</property>
+		</bean>
+		
+		<bean id="dummyInner" class="com.synergyj.cursos.spring.beans.colecciones.DummyInner">
+			<property name="algo">
+				<value>algo mas</value>
+			</property>
+		
+		</bean>
+		
+		<!-- observar que  estos bean se inyectan con @Autowired -->
+		<bean id="es" class="java.util.Locale">
+		 	<constructor-arg value="es"></constructor-arg>
+		</bean>
+		<bean id="fr" class="java.util.Locale">
+		 	<constructor-arg value="fr"></constructor-arg>
+		</bean>
+		<bean id="ja" class="java.util.Locale">
+		 	<constructor-arg value="ja"></constructor-arg>
+		</bean>
+	</bean>
 	
 </beans>

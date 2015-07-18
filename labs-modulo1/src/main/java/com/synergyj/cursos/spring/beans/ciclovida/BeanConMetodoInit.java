@@ -19,7 +19,8 @@ public class BeanConMetodoInit {
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(BeanConMetodoInit.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(BeanConMetodoInit.class);
 
 	private String nombre;
 
@@ -30,7 +31,7 @@ public class BeanConMetodoInit {
 	 */
 	public void init() {
 		// TODO A) Agregar un mensaje a la consola
-
+		logger.debug("Clase {} esta ejecutando init.. ", this.getClass());
 	}
 
 	/**
@@ -38,6 +39,7 @@ public class BeanConMetodoInit {
 	 */
 	public void destroy() {
 		// TODO B) Agregar un mensaje a la consola
+		logger.debug("Clase {} esta ejecutando destroy.. ", this.getClass());
 	}
 
 	public int getEdad() {

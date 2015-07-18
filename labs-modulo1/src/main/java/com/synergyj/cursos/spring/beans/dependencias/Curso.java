@@ -11,23 +11,27 @@ package com.synergyj.cursos.spring.beans.dependencias;
 /**
  * @author Jorge Rodríguez Campos (jorge.rodriguez@synergyj.com)
  */
-// el bean debe estar creado como Prototype y solo se debe crear hasta que se requiera.
+// el bean debe estar creado como Prototype y solo se debe crear hasta que se
+// requiera.
 public class Curso {
 
 	// inyectar por constructor
 	private Profesor profesor;
 
-	// inyectar el valor de la clave de la asignatura 'Algebra' (compound property name)
+	// inyectar el valor de la clave de la asignatura 'Algebra' (compound
+	// property name)
 	private Asignatura asignatura = new Asignatura();
 
 	// inyectar como inner bean
 	private Curso cursoSiguiente;
 
-	// inyectar asegurando que el bean salon haya sido inicializado previamente (depends-on)
+	// inyectar asegurando que el bean salon haya sido inicializado previamente
+	// (depends-on)
 	private Salon salon;
 
 	public Curso(Profesor profesor) {
 		this.profesor = profesor;
+
 	}
 
 	public Profesor getProfesor() {
@@ -46,7 +50,8 @@ public class Curso {
 	}
 
 	/**
-	 * @param asignatura the asignatura to set
+	 * @param asignatura
+	 *            the asignatura to set
 	 */
 	public void setAsignatura(Asignatura asignatura) {
 		this.asignatura = asignatura;
@@ -70,6 +75,7 @@ public class Curso {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

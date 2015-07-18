@@ -15,26 +15,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Esta clase muestra como participar en el ciclo de vida del bean usnado anotaciones estandar. El
- * nombre de los metodos no es importante, lo que es importante es que sean void y no reciban
- * parametros
+ * Esta clase muestra como participar en el ciclo de vida del bean usnado
+ * anotaciones estandar. El nombre de los metodos no es importante, lo que es
+ * importante es que sean void y no reciban parametros
  */
 public class BeanConAnotaciones {
 
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(BeanConAnotaciones.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(BeanConAnotaciones.class);
 
 	@PostConstruct
 	public void start() {
 		// E) TODO agregar mensaje
+		logger.debug("Clase {} esta ejecutando start", this.getClass());
 
 	}
 
 	@PreDestroy
 	public void shutdown() {
 		// F) TODO agregar mensaje
+		logger.debug("Clase {} esta ejecutando shutdown", this.getClass());
 
 	}
 }

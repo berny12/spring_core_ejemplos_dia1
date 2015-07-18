@@ -4,4 +4,20 @@
 
 	<!-- TODO, Realizar la definición del Bean Curso con base a las instrucciones en la clase. -->
 
+	<!--  configuramos el bean curso -->
+	<bean id="curso" class="com.synergyj.cursos.spring.beans.dependencias.Curso" depends-on="salon" scope="prototype"  >
+		<constructor-arg ref="profesor"></constructor-arg>
+		<property name="asignatura.clave" value="Algebra"></property>
+		<property name="cursoSiguiente">
+			<bean class="com.synergyj.cursos.spring.beans.dependencias.Curso">
+				<constructor-arg ref="profesor"></constructor-arg>
+			</bean>
+		</property>
+		<property name="salon" ref="salon"></property>
+	</bean>
+
+	<!-- declaramos los beans a utilizar  -->
+	<bean id="profesor" class="com.synergyj.cursos.spring.beans.dependencias.Profesor" />
+	<bean id="salon" class="com.synergyj.cursos.spring.beans.dependencias.Salon" />
+	<bean id="asignatura" class="com.synergyj.cursos.spring.beans.dependencias.Asignatura" lazy-init="true"></bean>
 </beans>

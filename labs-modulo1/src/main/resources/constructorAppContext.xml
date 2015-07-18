@@ -5,17 +5,17 @@
 	<!-- Nota: No se permite cambiar el orden de  los tags <constructor-arg>  -->
 
 	<bean id="stringIntBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
-		<constructor-arg value="10"  />
-		<constructor-arg value="20"  />
+		<constructor-arg value="10" type="int"  />
+		<constructor-arg value="20" index="0" />
 	</bean>
 
 	<bean id="intStringBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
 		<constructor-arg value="20" />
-		<constructor-arg value="10" />
+		<constructor-arg value="10" type="int" index="0"/>
 	</bean>
 
 	<bean id="intBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
-		<constructor-arg value="10" />
+		<constructor-arg value="10" type="int" />
 	</bean>
 
 	<bean id="intStringDaoBean" class="com.synergyj.cursos.spring.servicio.impl.ConstructorServiceImpl">
