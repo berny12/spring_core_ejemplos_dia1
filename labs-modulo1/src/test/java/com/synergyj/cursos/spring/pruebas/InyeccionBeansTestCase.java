@@ -19,22 +19,24 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.synergyj.cursos.spring.servicio.MiServicio;
-import com.synergyj.cursos.spring.servicio.impl.MiServicioSinAnotacionesImpl;
+import com.synergyj.cursos.spring.servicio.impl.MiServicioParcialAnotadoImpl;
 
 /**
  * @author Jorge Rodríguez Campos (jorge.rodriguez@synergyj.com)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "/inyeccionBeansXMLAppContext.xml")
- //@ContextConfiguration(locations = "/inyeccionBeansAnotadoAppContext.xml")
- //@ContextConfiguration(locations = "/inyeccionBeansTotalmenteAnotadoAppContext.xml")
- //@ContextConfiguration(locations = "/inyeccionBeansJavaAppContext.xml")
+// @ContextConfiguration(locations = "/inyeccionBeansXMLAppContext.xml")
+// @ContextConfiguration(locations = "/inyeccionBeansAnotadoAppContext.xml")
+// @ContextConfiguration(locations =
+// "/inyeccionBeansTotalmenteAnotadoAppContext.xml")
+@ContextConfiguration(locations = "/inyeccionBeansJavaAppContext.xml")
 public class InyeccionBeansTestCase {
 
 	/**
 	 * Logger para todas las instancias de la clase
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(InyeccionBeansTestCase.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(InyeccionBeansTestCase.class);
 
 	/**
 	 * Observar el nombre del atributo, corresponde con el id del bean
@@ -45,13 +47,17 @@ public class InyeccionBeansTestCase {
 	@Test
 	public void validaConfiguracion() {
 		Assert.assertNotNull(miServicio);
-		// invoca al servicio para validar que el DAO este inyectado correctamente.
+		// invoca al servicio para validar que el DAO este inyectado
+		// correctamente.
 		miServicio.crea("Texto de prueba");
 
 		logger.debug("{}", miServicio);
-		Assert.assertTrue(miServicio instanceof MiServicioSinAnotacionesImpl);
-		// Assert.assertTrue(miServicio instanceof MiServicioParcialAnotadoImpl);
-		// Assert.assertTrue(miServicio instanceof MiServicioTotalmenteAnotadoImpl);
-		 //Assert.assertTrue(miServicio instanceof MiServicioParcialAnotadoImpl);
+		// Assert.assertTrue(miServicio instanceof
+		// MiServicioSinAnotacionesImpl);
+		// Assert.assertTrue(miServicio instanceof
+		// MiServicioParcialAnotadoImpl);
+		// Assert.assertTrue(miServicio instanceof
+		// MiServicioTotalmenteAnotadoImpl);
+		Assert.assertTrue(miServicio instanceof MiServicioParcialAnotadoImpl);
 	}
 }

@@ -6,12 +6,19 @@
 	<bean id="dispatcher" class="com.synergyj.cursos.spring.servicio.impl.print.DispatcherServiceImpl">
 		<property name="serviceName" value="despachador de servicios" />
 		<!-- TODO, modificar para habilitar la inyección de métodos -->
+		<!--
+		se comenta para evitar usar la inyeccion pormedio del metodo set  
 		<property name="printService" ref="consolePrintService" />
+		-->
+		
+		<!-- para decirle a spring que inyecte el metodo se usa  name->nombre metodo bean -> tipo de la salida -->
+		<lookup-method name="getPrintService" bean="consolePrintService"/>
 	</bean>
 
 	<!-- TODO Asegurarse que este bean sea prototype -->
+	<!-- se agrega el scope prototype porque se requiere nueva instancia para imprimir, si no se realizar siempre seria singleton -->
 	<bean id="consolePrintService" 
-		class="com.synergyj.cursos.spring.servicio.print.ConsolePrintServiceImpl">
+		class="com.synergyj.cursos.spring.servicio.print.ConsolePrintServiceImpl" scope="prototype">
 	</bean>
 
 

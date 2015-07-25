@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
 
 <!-- TODO, completar este archivo, habilitar los namespaces necesarios. -->
+
+	<bean id="cadena" class="java.lang.Long" c:_0="377378383"></bean>
+	<bean id="coleccionesBean" class="com.synergyj.cursos.spring.beans.colecciones.ColeccionesBean"
+	
+			p:nombre="El innombrable" p:annios="100" p:esProgramador="true" p:propiedades-ref="propiedades"
+			p:lista-ref="lista" p:telefonos-ref="telefonos" p:dummy-ref="dummy"
+	/>
+	
+	<util:map id="propiedades">
+		<entry key="key" value="value"/>
+		<entry  key="cadena" value-ref="cadena"/>
+	</util:map>
+	
+	<util:list id="lista">
+		<value>elemento 1 de la lista</value>
+		<ref bean="cadena" />
+		<value>elemento 3 de la lista</value>
+		<ref bean="cadena" />
+	</util:list>
+	
+	<util:list id="telefonos">
+		<value>5555-8887</value>
+		<value>5555-8887-6544</value>
+	</util:list>
+	
+	<bean id="dummy" class="com.synergyj.cursos.spring.beans.colecciones.Dummy"
+	      p:nombre="Hola"
+	      p:inner-ref="dummyInner" />
+	      
+	<bean id="dummyInner" class="com.synergyj.cursos.spring.beans.colecciones.DummyInner"
+	      p:algo="algo mas" />
+	 
+	<!-- Observar que estos  beans se inyectan con @Autowired -->     
+	<bean id="es" class="java.util.Locale" c:_0="es" />
+	<bean id="fr" class="java.util.Locale" c:_0="fr" />
+	<bean id="ja" class="java.util.Locale" c:_0="ja" />
+
+
 </beans>
